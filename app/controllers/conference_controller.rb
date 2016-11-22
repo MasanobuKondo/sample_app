@@ -17,15 +17,13 @@ class ConferenceController < ApplicationController
     @call1 = @client.calls.create(
       to: "#{@phone1}",
       from: "#{@number}",
-      #url: "https://handler.twilio.com/twiml/EH47c0a3ef794d3170d959516ef879e4f0"
-      url: "http://110.50.220.180/twilio/action/conference.php?record=1"
+      url: ""
     )
     # phone2 録音する
     @call2 = @client.calls.create(
       to: "#{@phone2}",
       from: "#{@number}",
-      url: "http://110.50.220.180/twilio/action/conference.php?record=0"
-      #url: "https://handler.twilio.com/twiml/EH47c0a3ef794d3170d959516ef879e4f0"
+      url: ""
     )
   end
 end
