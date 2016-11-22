@@ -1,0 +1,9 @@
+<h1>トラッキング内容サンプル</h1>
+<p>利用状況サンプル</p>
+<table border="1">
+  <tr><td>通話日時</td><td>発信元電話番号</td><td>Twilio電話番号</td><td>着信時間</td><td>通話時間</td></tr>
+  <% @list.each do |col| %>
+  <tr><td><%= col["start_time"] %></td><td><%= col["from"] %></td><td><%= col["to"] %></td><td><%= col["duration1"] %>秒</td><td><%= col["duration2"] %>秒</td></tr>
+  <% end %>
+</table>
+

@@ -1,0 +1,57 @@
+        <script type="text/javascript"
+          src="//media.twiliocdn.com/sdk/js/client/v1.3/twilio.min.js"></script>
+        <script type="text/javascript"
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <link href="//static0.twilio.com/resources/quickstart/client.css"
+          type="text/css" rel="stylesheet" />
+        <script type="text/javascript">
+
+      Twilio.Device.setup("<%= @token %>", {debug: true});
+
+      Twilio.Device.ready(function (device) {
+        $("#log").text("Ready");
+      });
+
+      Twilio.Device.error(function (error) {
+        $("#log").text("Error: " + error.message);
+      });
+
+      Twilio.Device.connect(function (conn) {
+        $("#log").text("Successfully established call");
+      });
+
+      Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+      });
+
+      /* Listen for incoming connections */
+      Twilio.Device.incoming(function (conn) {
+        $("#log").text("Incoming connection from " + conn.parameters.From);
+        // accept the incoming connection and start two-way audio
+        conn.accept();
+      });
+
+      function call() {
+        // get the phone number to connect the call to
+        num = $("#number").val();
+        num = "+81" + num.substr(1);
+        params = {"PhoneNumber": num};
+        //params = {"PhoneNumber": $("#number").val()};
+        Twilio.Device.connect(params);
+      }
+
+      function hangup() {
+        Twilio.Device.disconnectAll();
+      }
+    </script>
+    <button class="call" onclick="call();">
+      CALL(ex:+8190*******)
+    </button>
+
+    <button class="hangup" onclick="hangup();">
+      切る！
+    </button>
+    <input type="text" id="number" name="number" placeholder="電話番号を入力してCALLを押してください"/>
+
+    <div id="log">Loading pigeons...</div>

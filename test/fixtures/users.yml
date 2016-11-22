@@ -1,0 +1,17 @@
+# 両方入力
+one:
+  phone_number: 09047896062
+  mail_address: masanobu.kondo@kddi-web.com
+  status: 10
+# 電話番号のみ
+two:
+  phone_number: 09047896062
+  mail_address: ""
+  status: 10
+  
+# メールアドレスのみ
+three:
+  phone_number: 
+  mail_address: masanobu.kondo@kddi-web.com
+  status: 10
+  

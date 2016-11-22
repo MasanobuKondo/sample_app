@@ -1,0 +1,30 @@
+# MariaDB version 10.0.16
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  database: db_name
+  host: localhost
+  pool: 20
+  username: {db_username}
+  password: {db_user_password}
+
+development:
+  <<: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  #<<: *default
+
+  adapter: mysql2
+  encoding: utf8
+  database: db_name
+  host: localhost
+  pool: 20
+  username: {db_username}
+  password: {db_user_password}
+
+production:
+  <<: *default

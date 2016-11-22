@@ -1,0 +1,7 @@
+<h1>トラッキング内容サンプル</h1>
+<p>利用状況サンプル</p>
+<table border="1">
+  <tr><td>通話日時</td><td>発信元電話番号</td><td>Twilio電話番号</td><td>着信時間</td><td>通話時間</td></tr>
+  <tr><%= twilist %></tr>
+</table>
+
